@@ -11,7 +11,7 @@ const heroData = document.getElementById("hero-data");
 // Open menu & add overlay
 openMenuIcon.addEventListener("click", () => {
   mobileMenu.classList.add("menu-opened");
-  headerOverlay.classList.add("menu-opened")
+  headerOverlay.classList.add("menu-opened");
 });
 
 // Close menu & remove overlay
@@ -20,3 +20,12 @@ closeMenuIcon.addEventListener("click", () => {
   headerOverlay.classList.remove("menu-opened");
 });
 // Add parallax effect
+window.addEventListener("scroll", () => {
+  let scrollPosition = window.scrollY;
+
+  grassImage.style.transform = "translateY(" + -scrollPosition * 0.02 + "%)";
+  mountainsImage.style.transform = "translateY(" + -scrollPosition * 0.04 + "%)";
+  skyImage.style.transform = "translateY(" + -scrollPosition * 0.01 + "%)";
+  heroData.style.transform = "translateY(" + -scrollPosition * 0.03 + "%)";
+  heroData.style.opacity = 1 - scrollPosition * 0.002;
+});
